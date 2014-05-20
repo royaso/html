@@ -1,0 +1,61 @@
+in order to install a terminal based weibo client
+
+choose twei client, it is a nodejs application, so need to install nodejs, but
+after yum installing the nodejs,I find that the version of nodejs is too low,
+so low that it failed in installing npm. npm is a nodejs package manager. It is
+like yum to centos as npm to nodejs.
+
+so install nodejs from source code. download from nodejs.org, 11M ,but really
+slow download speed. using python -m SimpleHTTPServer .
+
+./configure && make all && sudo make intall && make clean && make distclean
+
+installing npm from git
+
+git clone git@github.com:isaacs/npm.git
+cd npm
+sudo node cli.js install npm -gf
+
+it may take a while and it should be sudo
+
+after all that is done,
+
+npm install twei -g //g for global
+
+-----------------------update python on centos----------------
+centos is clean, that means if you need to install something you need to get
+all the required tools yourself. Because what centos is aimed for is a stable
+envirenment. 
+
+yum grouplist
+yum grouplist development //or yum groupinstall "development tools"
+
+warning: Because yum uses python2.3(lower version), it is better not to be
+messing with the administrator tool(ie:yum), so we won't remove the older
+version of python, and It is fine to have two versions of python, more on that
+later
+
+
+
+download from python office website, according to its website, there are now
+two different versions available. 2.7 or 3.3
+
+maybe the newer the better, but i just settle now for 2.7
+
+the usual procedure: ./configure && make all &&  sudo make install && make
+clean && make distclean
+
+now when you type python and two press 'Tab',you will see these two different
+versions of python, and the trick is the default options is still the older
+one. since I rearlly use pyhon,(maybe someday),right now I just using it to
+install nodejs. but incase you want it ,follow the next code
+
+
+mv /usr/bin/python /usr/bin/python2.4
+ln -s /usr/local/bin/python2.7 /usr/bin/python
+
+vim /usr/bin/yum   -----> change the first line where it has python to
+python2.7
+
+ok
+
