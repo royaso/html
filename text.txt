@@ -1,3 +1,0 @@
-name:royaso
-pass:abcd
-mysex:male
