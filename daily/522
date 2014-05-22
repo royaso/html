@@ -1,0 +1,12 @@
+bootstrap===>grid layout
+教程说是向上扩展，之前没理解，现在，其实也可以说是向下扩展。
+
+如果class没有lg的就找有没有md在找sm，也就是教程说的，如果有md的就向上扩展到lg的，除非有设定lg的。
+
+还有，一个row里如果超出12，没有另起一个row，那后面超出的col就会折行显示，很好理解
+
+col clear==>clearfix and visible-xs[lg-sm -md]
+，col折行的时候防止卡再前面高度太高的col
+
+让col占一行 col- 就可以
+
