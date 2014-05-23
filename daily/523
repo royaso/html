@@ -1,0 +1,28 @@
+see a movie 3D tonight!!oh yeah
+
+
+afternoon, so many web develop related tools
+
+koala==>a client for process less file(a preprocess css file)
+and it is build on entirely web technology( node-wibkit )
+in order to install this client in ubuntu , using debreate.deb
+in windows using inno setup
+
+pngquant.org ===> lossy compress png file up to 73%!! impressive!
+tinypng.com and 
+
+
+less ==> a way to install
+npm install less -g
+lessc a.less [-x] a.css
+
+using less file directly in web with the help of less.js( lesscss.net)
+
+
+thunderbird
+
+
+--------------
+packing my first ubuntu application hello.deb !! debreate.deb
+remember to incled nw.pak! 
+

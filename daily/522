@@ -10,3 +10,8 @@ col clear==>clearfix and visible-xs[lg-sm -md]
 
 让col占一行 col- 就可以
 
+--------afternoon
+bs-->js--->tooltip
+$().tooltip({html:true,placemet:bottom}).tooltip('show')
+$(alert(444))()
+$(function(){})()
