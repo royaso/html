@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery test</title>
+	<script type="text/javascript" src='jquery.min.js'></script>
+</head>
+<style> 
+	.content{
+		display: none;
+		width:200px;
+		height:200px;
+		margin:auto;
+		position: absolute;
+		z-index: 10;
+		left:0;
+		right:0;
+		bottom:0;
+		top:0;
+		background: #fff;
+	}
+	.overlay{
+		display: none;
+		position:fixed;
+		background: rgba(0,0,0,.8);
+		left:0;
+		top:0;
+		bottom:0;
+		right:0;
+
+	}
+</style>
+<body>
+<input type='button' id='c' value='click'>
+<div class='content'>
+this is content
+</div>
+<div class="overlay"></div>
+<script type="text/javascript">
+	$("#c").click(function(){
+		$(".overlay,.content").fadeIn(200);
+	})
+	$(".overlay").click(function(){
+		$(".overlay,.content").fadeOut(200,function(){
+		})
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+ 如何cp目录时忽略指定的目录和文件
+2014-05-25 16:50 159人阅读 评论(0) 收藏 举报
+
+　　　在备份ltedecoder程序时，需要把此目录拷由到bak目录下，但decoder目录下有个大文件，不需要备份，还有日志问题，也不需要备份，如何实现呢？？
+
+方法：　 
+
+　　　cd /source-dir
+      　 find . -name .snapshot -prune -o -print0　|　cpio -pmd0 /dest-dir
+解释： This command copies the contents of /source-dir to /dest-dir, but omits files and directories  named  .snapshot　(and  anything in them).  The　construct -prune -o -print0　 is quite common. The idea here is  that  the  expression  before  -prune　 matches  things  which  are  to be pruned.  However, the -prune action itself returns true, so the following -o　 ensures that the right hand side is evaluated only for those directories which didn't get pruned (the  contents　 of the pruned directories are not even visited, so their contents are irrelevant).  The expression on the right　 hand side of the -o is in parentheses only for clarity.  It emphasises that the -print0 action takes place only　for  things  that  didn't have -prune applied to them.  Because the default `and' condition between tests binds　more tightly than -o, this is the default anyway, but the parentheses help to show what is going on.
+
+此段的意思是：当找到name为.snapshot时，prune就会返回真，-o是或的意思，“或”的使用技巧是当左边的表达式为“真”时，则不会运算右边的表达式，当左边的表达式为假，则运算右边的表达式，即，当左边name不为.snapshot，则进行右边的表达式，右边的表达式意思是print文件名（包括路径的）；当找到name为.snapshot时，则不打印文件名，这样就实现了把非.snampshot为命名的文件打印出来并交给cpio进行处理，cpio则把这些文件拷则的dest-dir中，实现忽略.snampshot文件的拷备（注：文件指文件夹或file名）。
+
+         拓展： -prune -o \( ... -print0 \)
+
+“\( ... -print0\)”这里可以使用find的查找文件的参数，如-name,-size等。
+
+find . -name Persistence -prune -o \( \! -name '*log*' \! -size +100M -print0 \) | cpio -pmd0 /root/do_bak/ltedecoder　
+
+上面则不仅忽略Persistence目录，还会忽略包涵log的文件或文件夹，还会忽略大于100M的文件。
+
+注意：　你一定注意到了find 后面是“.”，代表当前目录，即此命令必须是pwd是你要拷则的目录里面，如你把sour-dir的文件进行拷则，则需要先cd $sour-dir。
+
