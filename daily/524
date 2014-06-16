@@ -1,0 +1,29 @@
+how to become a hack  [http://www.catb.org/~esr/faqs/hacker-howto.html]
+
+teach yourself programming in ten years [http://norvig.com/21-days.html]
+->so you want to become a programmer
+
+gutenberg.org  (free online ebook)
+
+
+auth 2.0 (http://www.rfcreader.com/#rfc6749)
+
+hash (#) in url (var_dump $_SERVER got nothing)
+it turns out to be a ajax request.
+the home page is just a form, onece js detect a hash portion in url (throught
+location.hash) it fires up a ajax to pull the content from server in the form of
+json
+
+ezoui.com
+a web application framework
+
+
+jquery simple costom defintion:
+$.extend({add:function(a,b){return a+b;}})
+$.fn.extend({
+  alertWhileClick:function(){
+    $(this).click(function(){
+      alert($(this).text());
+      })
+    }
+  })
